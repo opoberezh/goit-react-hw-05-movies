@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container, Header, Link } from './Layout.styled';
+import Home from 'pages/Home';
 
  const SharedLayout = () => {
   return (
