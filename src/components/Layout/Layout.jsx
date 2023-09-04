@@ -1,30 +1,30 @@
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import { Container, Header, Link } from './Layout.styled';
-import Home from 'pages/Home';
+// import { Suspense } from 'react';
+// import { Outlet } from 'react-router-dom';
+// import { Container, Header, Link } from './Layout.styled';
 
- const SharedLayout = () => {
-  return (
-    <Container>
-      <Header>
-        <nav>
-          <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="movies">Movies</Link>
-          </li>
-        </ul>
-        </nav>
-      </Header>
+
+//  const SharedLayout = () => {
+//   return (
+//     <Container>
+//       <Header>
+//         <nav>
+//           <ul>
+//           <li>
+//             <Link to="/">Home</Link>
+//           </li>
+//           <li>
+//             <Link to="movies">Movies</Link>
+//           </li>
+//         </ul>
+//         </nav>
+//       </Header>
       
-      <main>
-        <Suspense>
-           <Outlet />
-        </Suspense>
-      </main>
-    </Container>
-  );
-};
-export default  SharedLayout;
+//       <main>
+//         <Suspense>
+//            <Outlet />
+//         </Suspense>
+//       </main>
+//     </Container>
+//   );
+// };
+// export default  SharedLayout;
