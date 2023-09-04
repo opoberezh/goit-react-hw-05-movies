@@ -18,7 +18,7 @@ const Movies = () => {
         const loadResult = async (query, page) => {
           try {
             setIsLoading(true);
-            const movie = await  getTrendingList(`/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`);
+            const movie = await  getTrendingList(query, page);
             if (movie && movie.results && movie.results.length) { 
                 setMovieList(prevMovies =>
                   page > 1 ? [...prevMovies, ...movie.results] : movie.results
@@ -62,5 +62,7 @@ const Movies = () => {
    
     
 }
+
+
 
 export default Movies;
