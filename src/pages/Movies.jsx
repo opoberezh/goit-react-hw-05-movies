@@ -15,7 +15,7 @@ const Movies = () => {
       
 
     useEffect(() => {
-        const loadResult = async () => {
+        const loadResult = async (query, page) => {
           try {
             setIsLoading(true);
             const movie = await  getTrendingList(`/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`);
@@ -23,9 +23,9 @@ const Movies = () => {
                 setMovieList(prevMovies =>
                   page > 1 ? [...prevMovies, ...movie.results] : movie.results
                 );
-                return;
+               
     
-            //   setIsLoading(false);
+              setIsLoading(false);
             } else {
                 toast.error('Movies are not found!', {
                     icon: '🤯',
