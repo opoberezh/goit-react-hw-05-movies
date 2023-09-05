@@ -31,7 +31,7 @@ const {movieId} = useParams();
                 <div>
                     <h2>Movie Cast</h2>
                     <ul >
-                        {cast.map(actor => (
+                        {cast.length>0 && cast.map(actor => (
                             <li key={actor.id}>
                                 <img 
                                 src={
