@@ -7,14 +7,14 @@ import { useParams } from "react-router-dom";
 
 const Cast = () => {
 const {movieId} = useParams();
-    const [cast, setCast] = useState([]);
+    const [cast, setCast] = useState({});
 
     useEffect(()=> {
         const movieCast = async () => {
             try {
                 const response = await getCast(movieId);   
                 console.log(response);
-                setCast(response);
+                setCast(response.cast);
             } catch (error) { 
                 toast.error('Request is not found!', {
                         icon: '🤯',

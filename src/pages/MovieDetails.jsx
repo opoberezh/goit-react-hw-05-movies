@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { Outlet, useParams, useLocation, NavLink, Link } from 'react-router-dom';
+import { Outlet, useParams, useLocation,  Link } from 'react-router-dom';
 import {getMovieDetails} from '../API/API';
 
 const MovieDetails = () => {
@@ -69,10 +69,10 @@ const MovieDetails = () => {
                 <h4>Additional information</h4>
                 <ul>
                     <li>
-                        <NavLink to='cast' state={{...location.state}}>Cast</NavLink>
+                        <Link to='cast' state={{...location.state}}>Cast</Link>
                     </li>
                     <li>
-                        <NavLink to='reviews' state={{...location.state}}>Reviews</NavLink>
+                        <Link to='reviews' state={{...location.state}}>Reviews</Link>
                     </li>
                 </ul>
             </div>
