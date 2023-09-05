@@ -1,19 +1,28 @@
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-export const MovieCard = ({ movieList }) => {
+
+ const MovieCard  = ({films}) => {
   const location = useLocation();
+    // if(!films){
+    //   return null;
+    // }
+
   return (
-    <main>
+    <>
       <ul>
-        {movieList.map(movie => (
-          <li key={movie.id}>
-            <NavLink to={`/movies/${movie.id}`}
-            state={{from: location}}
-            cover={movie.poster_path}>
-            </NavLink>
-          </li>
-        ))}
+        {films.map(movie => {
+          return (
+            <li key={movie.id}>
+              <NavLink to={`/movies/${movie.id}`} state={{ from: location }} 
+              cover={movie.poster_path}>
+                {movie.original_title}
+              </NavLink>
+            </li>
+          );
+        })}
       </ul>
-    </main>
+    </>
   );
 };
+
+export default MovieCard;

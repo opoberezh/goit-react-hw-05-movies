@@ -5,6 +5,10 @@ import { NavLink } from 'react-router-dom';
 
 import Home from "pages/Home";
 import Movies from "pages/Movies";
+import MovieDetails from 'pages/MovieDetails';
+import Cast from './Cast/Cast';
+import Reviews from './Reviews/Reviews';
+
 // import SharedLayout  from 'components/Layout/Layout';
 // import { Container, Header, Link } from './Layout.styled';
 
@@ -31,9 +35,9 @@ export const App = () => {
        <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/movies" element={<Movies/>}/>
-        <Route path="/movies/:movieId" element={<div>MovieDetails</div>}>
-           <Route path="casts" element={<div>Casts</div>}/>
-           <Route path="reviews" element={<div>Reviews</div>}/>
+        <Route path="/movies/:movieId" element={<MovieDetails/>}>
+           <Route path="casts" element={<Cast/>}/>
+           <Route path="reviews" element={<Reviews/>}/>
         </Route>
         <Route path="*" element={<div>404 Not Found</div>}/>
       </Routes>
