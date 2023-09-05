@@ -13,15 +13,16 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3';
   };
 const params = {
     key: API_KEY,
+    language: 'en-US',
 }
 
 export const  getTrendingList = async () =>{
    
     try{
-        const response = await axios.get(`/trending/movie/day?language=en-US`, options, params);
+        const response = await axios.get(`/trending/movie/day`, options, params);
         console.log(response)
         if (response){
-            const data = response.data
+            const data = response.data.results
         console.log(data);
         return data;
         }else{
