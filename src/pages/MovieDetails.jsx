@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { Outlet, useParams, useLocation, NavLink } from 'react-router-dom';
+import { Outlet, useParams, useLocation, NavLink, Link } from 'react-router-dom';
 import {getMovieDetails} from '../API/API';
 
 const MovieDetails = () => {
@@ -38,10 +38,10 @@ const MovieDetails = () => {
     return (
         <main>
             <button type="button">
-                <NavLink to={backLink.current}>
+                <Link to={backLink.current}>
                 <HiArrowNarrowLeft size={24} />
                  Go back 
-                </NavLink>
+                </Link>
             </button>
             <div>
                 <img
