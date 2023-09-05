@@ -88,7 +88,7 @@ export const  getCast = async (movieId) =>{
         const response = await axios.get(`/movie/${movieId}/credits`, {options, params });
         console.log(response)
         if (response){
-            const data = response.data.result
+            const data = response.data
         console.log(data);
         return data;
         }else{
