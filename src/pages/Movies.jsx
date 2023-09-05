@@ -3,9 +3,10 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  getSearchingMovies} from "../API/API";
 import { SearchBar } from "components/SearchBar/SearchBar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 import { useSearchParams } from 'react-router-dom';
-import MovieCard from "components/MovieCard/MovieCard";
+
+const MovieCard = lazy(() => import ("../components/MovieCard/MovieCard")) ;
 
 const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);

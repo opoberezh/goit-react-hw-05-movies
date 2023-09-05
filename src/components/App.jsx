@@ -1,49 +1,28 @@
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { Route, Routes } from "react-router-dom";
-import { NavLink } from 'react-router-dom';
+import { lazy } from 'react';
+import Layout from '../components/Layout/Layout';
 
-import Home from "pages/Home";
-import Movies from "pages/Movies";
-import MovieDetails from 'pages/MovieDetails';
-import Cast from './Cast/Cast';
-import Reviews from './Reviews/Reviews';
-
-// import SharedLayout  from 'components/Layout/Layout';
-// import { Container, Header, Link } from './Layout.styled';
-
-
-
+const Home = lazy (() => import ('../pages/Home'));
+const Movies = lazy (() => import ('../pages/Movies'));
+const MovieDetails = lazy (() => import ('../pages/MovieDetails')) ;
+const Cast = lazy (() => import ('../components/Cast/Cast')) ;
+const Reviews = lazy (() => import ( '../components/Reviews/Reviews'));
 
 export const App = () => {
   return (
-    <div>
-        <div>
-          <header>
-            <nav>
-              <ul>
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="movies">Movies</NavLink>
-              </li>
-            </ul>
-            </nav>
-          </header>
-       </div>
-       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/movies" element={<Movies/>}/>
-        <Route path="/movies/:movieId" element={<MovieDetails/>}>
-           <Route path="cast" element={<Cast/>}/>
-           <Route path="reviews" element={<Reviews/>}/>
+    <Routes>
+      <Route path="/" element={<Layout />}  exact>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
         <Route path="*" element={<div>404 Not Found</div>}/>
-      </Routes>
-      <ToastContainer />
-    </div>
+      </Route>
+    </Routes>
   );
 };
 
-
+ 

@@ -2,10 +2,10 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Loader } from 'components/Loader/Loader';
-import { useEffect, useState } from "react";
+import { lazy, useEffect, useState } from "react";
 // import { useLocation } from 'react-router-dom';
 import {getTrendingList} from '../API/API';
-import MovieCard from 'components/MovieCard/MovieCard';
+const MovieCard = lazy(() => import ('components/MovieCard/MovieCard'));
 
 
 const Home =  () =>{

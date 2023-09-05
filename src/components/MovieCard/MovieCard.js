@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
     // if(!films){
     //   return null;
     // }
-
+    const imgBaseUrl = 'https://image.tmdb.org/t/p/w300';
   return (
     <>
       <ul>
@@ -14,8 +14,10 @@ import { useLocation } from 'react-router-dom';
           return (
             <li key={movie.id}>
               <NavLink to={`/movies/${movie.id}`} state={{ from: location }} 
-              cover={movie.poster_path}>
-                {movie.original_title}
+              ><img src={imgBaseUrl + movie.poster_path}
+                    width={140}
+                    alt={movie.original_title} />
+                    {movie.original_title}
               </NavLink>
             </li>
           );
