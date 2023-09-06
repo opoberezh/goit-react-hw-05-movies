@@ -5,8 +5,8 @@ import { Loader } from 'components/Loader/Loader';
 import { lazy, useEffect, useState } from "react";
 // import { useLocation } from 'react-router-dom';
 import {getTrendingList} from '../API/API';
-const MovieCard = lazy(() => import ('components/MovieCard/MovieCard'));
 
+const MovieCard = lazy(() => import ('components/MovieCard/MovieCard'));
 
 const Home =  () =>{
     const[trendingMovies, setTrendingMovies] = useState([]);
@@ -34,7 +34,7 @@ const Home =  () =>{
   
     return ( 
         <main> 
-          <h1>Trending today</h1>
+          <h1 style={{ fontSize: "24px", fontWeight: 700, color: "#301934", textAlign: "center" }}>TRENDING TODAY</h1>
           <ul>
            {isLoading ? (
           <Loader /> 

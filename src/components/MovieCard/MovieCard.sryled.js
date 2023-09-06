@@ -28,7 +28,7 @@ export const Poster = styled.img`
 
 export const MovieLink = styled(Link)`
   padding: 10px;
-  color: #722F37;
+  color: #301934;
   transition: color 250ms ease-in-out;
   text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
 
@@ -38,9 +38,8 @@ export const MovieLink = styled(Link)`
 `;
 
 export const Title = styled.p`
- font-size: 24px;
+  font-size: 24px;
   font-weight: 500;
-/* word-spacing: -0.03em; */
-letter-spacing: 0em;
+  letter-spacing: 0em;
 
 `;

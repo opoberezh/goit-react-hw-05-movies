@@ -1,10 +1,11 @@
 import { Loader } from 'components/Loader/Loader';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { HiArrowNarrowLeft } from 'react-icons/hi';
+
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { Outlet, useParams, useLocation,  Link } from 'react-router-dom';
 import {getMovieDetails} from '../API/API';
+import { GoBackBtn } from 'components/Button/Button';
 
 const MovieDetails = () => {
     const {movieId} = useParams();
@@ -37,12 +38,7 @@ const MovieDetails = () => {
 
     return (
         <main>
-            <button type="button">
-                <Link to={backLink.current}>
-                <HiArrowNarrowLeft size={24} />
-                 Go back 
-                </Link>
-            </button>
+            <GoBackBtn to={backLink.current}/>
             <div>
                 <img
                 src={`https://image.tmdb.org/t/p/w500${poster_path}`}
