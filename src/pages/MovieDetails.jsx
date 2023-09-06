@@ -54,8 +54,8 @@ const MovieDetails = () => {
                 <h3>Genres</h3>
                 <ul>
                 {genres && genres.length && genres.map(({ id, name }) => 
-                     <li key={id}>
-                    {name}
+                    <li key={id} style={{ fontSize: "18px", fontWeight:400, color: "#ffffff", marginBottom: '10px'}}>
+                     {name}
                     </li>
                 )}
                 </ul>

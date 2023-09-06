@@ -39,9 +39,19 @@ ul {
   h3,
   h4,
   h5,
-  h6,
-  p {
+  h6 {
     margin: 0;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+
+}
+
+p {
+  font-size: 22px;
+    margin: 0;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    max-width: 900px;
 }
 
 img {
