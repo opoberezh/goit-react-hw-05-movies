@@ -10,6 +10,7 @@ height: 100vh;
 
 export const Header = styled.header`
   display: flex;
+ 
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -28,20 +29,23 @@ export const Header = styled.header`
 export const NavList = styled.ul`
   display: flex;
  
-  gap: 20px;
  
 `;
 
+
 export const Link = styled(NavLink)`
-display: flex;
- 
+  display: flex;
+  flex-direction: column;
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
   color: black;
   font-weight: 500;
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
 
   &.active {
-    color: orangered;
+    color:#FFFFFF;
+    text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
   }
 `;

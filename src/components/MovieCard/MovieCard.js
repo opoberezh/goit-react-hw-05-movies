@@ -1,5 +1,6 @@
-import { NavLink } from 'react-router-dom';
+
 import { useLocation } from 'react-router-dom';
+import {List, Item, Poster, MovieLink, Title} from './MovieCard.sryled';
 
  const MovieCard  = ({films}) => {
   const location = useLocation();
@@ -9,20 +10,22 @@ import { useLocation } from 'react-router-dom';
     const imgBaseUrl = 'https://image.tmdb.org/t/p/w300';
   return (
     <>
-      <ul>
+      <List>
         {films.map(movie => {
           return (
-            <li key={movie.id}>
-              <NavLink to={`/movies/${movie.id}`} state={{ from: location }} 
-              ><img src={imgBaseUrl + movie.poster_path}
+            <Item key={movie.id}>
+              <MovieLink to={`/movies/${movie.id}`} state={{ from: location }} 
+              ><Poster src={imgBaseUrl + movie.poster_path}
                     width={140}
                     alt={movie.original_title} />
-                    {movie.original_title}
-              </NavLink>
-            </li>
+                    <Title>
+                      {movie.original_title}
+                    </Title>
+              </MovieLink>
+            </Item>
           );
         })}
-      </ul>
+      </List>
     </>
   );
 };

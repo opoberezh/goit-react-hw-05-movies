@@ -7,19 +7,25 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 	margin: 0;
-  font-family: 'Open Sans', sans;
-//   background: -webkit-linear-gradient(to right, #1f1c2c, #928dab); 
-//   background: linear-gradient(to right, #1f1c2c, #928dab);
-background: #BBD2C5;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #292E49, #536976, #BBD2C5);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #292E49, #536976, #BBD2C5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    height: 70vh;
+   
+    background-image:  url(https://img.freepik.com/premium-photo/popcorn-red-striped-box-red-background-with-copy-space_926936-292.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-attachment: fixed;
+     background-color:  rgba(46, 47, 66, 0.7);
+
+
+
+
+
+
 
   }
 
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
+
 
 ul {
     list-style: none;
