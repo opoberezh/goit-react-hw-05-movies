@@ -3,81 +3,47 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useState, useEffect, useRef, Suspense } from 'react';
-import { Outlet, useParams, useLocation,  Link } from 'react-router-dom';
-import {getMovieDetails} from '../API/API';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
+import { getMovieDetails } from '../API/API';
 import { GoBackBtn } from 'components/Button/Button';
+import MovieDetailsComponent from 'components/MovieDetailsComponent/MovieDetComp';
+import MovieDetAddInfor from 'components/MovieDetAddInfor/MovieDetAddInfor';
 
 const MovieDetails = () => {
-    const {movieId} = useParams();
-    const [movieDetails, setMovieDetails] = useState({});
-    const location = useLocation();
-    const backLink = useRef(location.state?.from || '/');
+  const { movieId } = useParams();
+  const [movieDetails, setMovieDetails] = useState({});
+  const location = useLocation();
+  const backLink = useRef(location.state?.from || '/');
 
-    useEffect(()=> {
-        const findingResult = async () => {
-            try {
-                const movie = await   getMovieDetails(movieId);   
-                console.log(movie);
-                setMovieDetails(movie)
-              } catch (error) { 
-                toast.error('Movie is not found!', {
-                        icon: '🤯',
-                      });
-                console.log(error);
-              }
-            };
-        
-            findingResult();
-          }, [movieId]);
-    
+  useEffect(() => {
+    const findingResult = async () => {
+      try {
+        const movie = await getMovieDetails(movieId);
+        console.log(movie);
+        setMovieDetails(movie);
+      } catch (error) {
+        toast.error('Movie is not found!', {
+          icon: '🤯',
+        });
+        console.log(error);
+      }
+    };
 
-     const {original_title
-        , genres, overview, poster_path, vote_average} = movieDetails || {};
-     const score = vote_average * 10; 
-     const scoreToFixed = score.toFixed(2);
+    findingResult();
+  }, [movieId]);
 
-    return (
-        <main>
-            <GoBackBtn to={backLink.current}/>
-            <div>
-                <img
-                src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-                widrh={220}
-                height={280}
-                loading='lazy'
-                alt='poster'/>
-                <div>
-                <h2>{original_title}</h2>
-                <h3>User score: {scoreToFixed}%</h3>
-                <h3>Overview</h3>
-                <p>{overview} </p>
-                <h3>Genres</h3>
-                <ul>
-                {genres && genres.length && genres.map(({ id, name }) => 
-                    <li key={id} style={{ fontSize: "18px", fontWeight:400, color: "#ffffff", marginBottom: '10px'}}>
-                     {name}
-                    </li>
-                )}
-                </ul>
-                </div>
-            </div>
-            <div>
-                <h4>Additional information</h4>
-                <ul>
-                    <li>
-                        <Link to='cast' state={{from: location}}>Cast</Link>
-                    </li>
-                    <li>
-                        <Link to='reviews' state={{from: location}}>Reviews</Link>
-                    </li>
-                </ul>
-            </div>
-            <Suspense fallback={<Loader/>}>
-             <Outlet/>   
-            </Suspense>
-            
-        </main>
-    );
-}
+  
+
+  return (
+    <main>
+      <GoBackBtn to={backLink.current} />
+      <MovieDetailsComponent movieDetails={movieDetails}/>
+     <MovieDetAddInfor/>
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+    </main>
+  );
+};
 
 export default MovieDetails;
