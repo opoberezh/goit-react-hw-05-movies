@@ -9,7 +9,7 @@ const MovieDetAddInfor = () => {
     const location = useLocation();
     return (
          <Wrapper>
-            <SubtitleH4>Additional information </SubtitleH4>
+            <SubtitleH4>Additional information</SubtitleH4>
             <LinkWrapper>
                <LinkList>
                 <LinkItem>

@@ -2,8 +2,6 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container, Header, Link, NavList } from './Layout.styled';
 import { Loader } from 'components/Loader/Loader';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { FcHome, FcFilmReel } from "react-icons/fc";
 
 
@@ -28,7 +26,6 @@ import { FcHome, FcFilmReel } from "react-icons/fc";
             <Outlet />
           </Suspense>
         </main> 
-        <ToastContainer/>
       </Container>
       
     );

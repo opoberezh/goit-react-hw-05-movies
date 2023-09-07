@@ -9,18 +9,30 @@ export const SearchBar = ({ value, onChange }) => {
   
     const inputSubmit = (evt) => {
       evt.preventDefault();
+      
       if (query.trim() === '') {
-        toast('Oops! Search query is empty!', {
+        toast.info('Oops! Search query is empty!', {
           icon: '🦄',
+        });
+      } else if (!query.match() === /^[a-zA-Z0-9\s]*$/) {
+        toast.error('Oops! Invalid characters in search query!', {
+          icon: '❌',
+        });
+      } else if (query.match() === /(\w).*\1/) {
+        toast.error('Oops! Duplicate characters are not allowed!', {
+          icon: '❌',
         });
       } else {
         toast.success('We found some movies for you!', {
           icon: '🚀',
         });
+
+      }
         onChange(query);
         setQuery('');
-      }
-    };
+     
+      };
+  
   
     return (  
       <Wrapper>
