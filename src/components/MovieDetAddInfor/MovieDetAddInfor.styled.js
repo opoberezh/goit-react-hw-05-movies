@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 export const SubtitleH4 = styled.h4`
     font-size: 24px;
     margin-bottom: 20px;
-    color: #301934;
+    color: #ffffff;
 `;
 
 export const LinkWrapper = styled.div`
@@ -38,12 +38,13 @@ export const InforLink = styled(Link)`
     text-aling: center;
     padding: 5px;
     cursor: pointer;
-    color: #301934;
+    color: #191970;
     transition: color 250ms ease-in-out;
     /* text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4); */
 
   &:hover {
     color: #FFFFFF;
+    text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
   }
 
 `;

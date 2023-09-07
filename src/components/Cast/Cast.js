@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getCast } from "API/API";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { ActorName, CastItem, CastList, CastPoster, CastSubtitle, CastWrapper, Character } from './Cast.styled';
 
 const Cast = () => {
 const {movieId} = useParams();
@@ -28,31 +29,28 @@ const {movieId} = useParams();
 
     return (
         <>
-                <div>
-                    <h2>Movie Cast</h2>
-                    <ul >
-                        {cast.length>0 && cast.map(actor => (
-                            <li key={actor.id}>
-                                <img 
-                                src={
-                                    actor.profile_path ?
-                                    `https://image.tmdb.org/t/p/w300${actor.profile_path}` : `https://placehold.jp/24/cccccc/ffffff/140x210.png?text=There is no photo`}
-                                width={140}
-                                loading='lazy'
-                                alt={actor.original_name}
-                                />
-                                <p>{actor.name}</p>
-                                <p>Character: {actor.character}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                {cast.length === 0 && <div>We don't have any cast for this movie.</div>}
+           <CastWrapper>
+               <CastSubtitle>Movie Cast</CastSubtitle>
+               <CastList >
+                   {cast.length>0 && cast.map(actor => (
+                       <CastItem key={actor.id}>
+                           <CastPoster 
+                           src={
+                               actor.profile_path ?
+                               `https://image.tmdb.org/t/p/w300${actor.profile_path}` : `https://placehold.jp/24/cccccc/ffffff/140x210.png?text=There is no photo`}
+                           width={140}
+                           loading='lazy'
+                           alt={actor.original_name}
+                           />
+                           <ActorName>{actor.name}</ActorName>
+                           <Character>Character: {actor.character}</Character>
+                       </CastItem>
+                   ))}
+               </CastList>
+           </CastWrapper>
+           {cast.length === 0 && <div>We don't have any cast for this movie.</div>}
         </>
-    )
-
-
-   
+    ) 
 };
 
 
