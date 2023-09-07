@@ -22,5 +22,6 @@ export const Description = styled.p`
     margin-bottom: 10px;
     max-width: 900px;
     color: #FFFFFF;
+    text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
 `;
 

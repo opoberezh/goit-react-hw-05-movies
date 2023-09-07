@@ -1,8 +1,10 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FcDisclaimer } from "react-icons/fc";
 import { getReviews } from "API/API";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { NoRevMessage, RevList, RevSubtitle, RevWrapper, RevItem, RevAuthor, RevContent } from './Reviews.styled';
 
 const Reviews = () => {
     const {movieId} = useParams();
@@ -28,19 +30,19 @@ const Reviews = () => {
         
     return (
         <>
-        <div>
-            <h2>Movie Reviews</h2>
-                <ul>
+        <RevWrapper>
+            <RevSubtitle>Movie Reviews</RevSubtitle>
+                <RevList>
                     {reviews.map(review => (
-                       <li key={review.id}>
-                            <p>{review.author}</p>
-                            <p>{review.content}</p>
-                       </li> 
+                       <RevItem key={review.id}>
+                            <RevAuthor>{review.author}</RevAuthor>
+                            <RevContent>{review.content}</RevContent>
+                       </RevItem> 
                     ))}
-                </ul>
-        </div>
+                </RevList>
+        </RevWrapper>
         {reviews.length === 0 && (
-        <div>We don't have any reviews for this movie.</div>
+        <NoRevMessage><FcDisclaimer/> We don't have any reviews for this movie.</NoRevMessage>
       )}
         </>
     )

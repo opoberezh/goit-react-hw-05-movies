@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { FcDisclaimer } from "react-icons/fc";
 import { getCast } from "API/API";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ActorName, CastItem, CastList, CastPoster, CastSubtitle, CastWrapper, Character } from './Cast.styled';
+import { ActorName, CastItem, CastList, CastPoster, CastSubtitle, CastWrapper, Character, NoCastMessage } from './Cast.styled';
 
 const Cast = () => {
 const {movieId} = useParams();
@@ -48,7 +48,7 @@ const {movieId} = useParams();
                    ))}
                </CastList>
            </CastWrapper>
-           {cast.length === 0 && <div>We don't have any cast for this movie.</div>}
+           {cast.length === 0 && <NoCastMessage ><FcDisclaimer/> We don't have any cast for this movie.</NoCastMessage>}
         </>
     ) 
 };

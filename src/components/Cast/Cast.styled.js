@@ -9,7 +9,7 @@ export const CastWrapper = styled.div`
 `;
 
 export const CastSubtitle = styled.h2`
-    font-size: 32px;
+    font-size: 28px;
     margin-bottom: 30px;
     text-aling: center;
     color: #FFFFFF;
@@ -28,7 +28,6 @@ export const CastItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 350px; */
   text-align: center;
 `;
 
@@ -49,4 +48,12 @@ export const Character = styled.p`
   font-weight: 500;
   color:  #191970;
   text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
+`;
+
+
+export const NoCastMessage = styled.div`
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 0 3px 0 rgba(25, 25, 112, 1);
 `;
