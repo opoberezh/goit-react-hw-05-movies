@@ -12,7 +12,7 @@ body {
    
     background-image:  url(https://img.freepik.com/premium-photo/popcorn-red-striped-box-red-background-with-copy-space_926936-292.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: center top;
     position: relative;
     background-attachment: fixed;
      background-color:  rgba(46, 47, 66, 0.7);

@@ -7,7 +7,7 @@ export const RevWrapper = styled.div`
 
 export const RevSubtitle = styled.h2`
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: #FFFFFF;
     text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
 `;
